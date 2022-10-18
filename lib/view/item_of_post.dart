@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:untitled3/pages/update.dart';
 import '../model/post.dart';
 import '../view_model/home_view_model.dart';
 
@@ -35,10 +36,10 @@ Widget itemofPost( homeView new_view ,Post post){
         onPressed: (BuildContext context){new_view.apiPostDelete(post).then((value) =>
         {if (value) new_view.apiPost()}
         );},
-        backgroundColor: Colors.tealAccent,
-        foregroundColor: Colors.red,
-        icon: Icons.update,
-        label: 'UPDATE',
+        backgroundColor: Color(0xFF21B7CA),
+        foregroundColor: Colors.white,
+        icon: Icons.delete,
+        label: 'Delete',
       ),
 
     ],
@@ -49,13 +50,12 @@ Widget itemofPost( homeView new_view ,Post post){
       motion: ScrollMotion(),
       children: [
         SlidableAction(
-          onPressed: (BuildContext context){new_view.apiPostUpdate(post).then((value) =>
-          {if (value) new_view.apiPost()}
-          );},
-          backgroundColor: Color(0xFF21B7CA),
-          foregroundColor: Colors.white,
-          icon: Icons.delete,
-          label: 'Delete',
+          onPressed: (BuildContext context){Navigator.push(context,MaterialPageRoute(builder: (context) =>  update()));},
+          backgroundColor: Colors.tealAccent,
+          foregroundColor: Colors.red,
+          icon: Icons.update,
+          label: 'UPDATE',
+
         ),
       ],
     ),

@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../model/post.dart';
-import '../pages/home.dart';
+
 import '../service/http.dart';
 
 class adView extends ChangeNotifier{
