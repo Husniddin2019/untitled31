@@ -8,29 +8,23 @@ import '../view_model/home_view_model.dart';
 
 Widget itemofPost( homeView new_view ,Post post){
   return Slidable(
-
-
     child: Container(
       padding: EdgeInsets.only(left: 20,right: 20,top: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           Container(
             //color: Colors.teal,
             child: Text(
               post.title!.toUpperCase(),
               style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
             ),),
-
           SizedBox(width: 5,),
           Container( child: Text(post.body!),),
-
-
-
         ],
       ),
-    ), startActionPane: ActionPane(
+    ),
+    startActionPane: ActionPane(
     // A motion is a widget used to control how the pane animates.
     motion:  ScrollMotion(),
 
@@ -55,7 +49,7 @@ Widget itemofPost( homeView new_view ,Post post){
       motion: ScrollMotion(),
       children: [
         SlidableAction(
-          onPressed: (BuildContext context){new_view.apiPostDelete(post).then((value) =>
+          onPressed: (BuildContext context){new_view.apiPostUpdate(post).then((value) =>
           {if (value) new_view.apiPost()}
           );},
           backgroundColor: Color(0xFF21B7CA),
@@ -65,10 +59,5 @@ Widget itemofPost( homeView new_view ,Post post){
         ),
       ],
     ),
-
-
-
   );
-
-
 }

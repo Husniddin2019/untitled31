@@ -21,16 +21,21 @@ class homeView extends ChangeNotifier{
   }
 
   Future<bool> apiPostDelete(Post post) async {
-
       isLoading = true;
       notifyListeners();
-
-    var response = await Network.DEL(Network.API_DELETE + post.id.toString(), Network.paramsEmpty());
-
-
+      var response = await Network.DEL(Network.API_DELETE + post.id.toString(), Network.paramsEmpty());
       isLoading = false;
       notifyListeners();
       return response!=null;
+  }
+
+  Future<bool> apiPostUpdate(Post post)async{
+    isLoading = true;
+    var response = Network.PUT(Network.API_UPDATE + post.id.toString(), Network.paramsUpdate(post));
+    isLoading = false;
+    notifyListeners();
+    return response!=null;
+
   }
 
 
